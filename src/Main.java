@@ -1,8 +1,17 @@
 import java.util.ArrayList;
 
 public class Main {
-    public boolean validecorde(Point A, Point B, ArrayList<Ligne> list){
-        for(int i = 0 ; )
+    public static boolean validecorde(Point A, Point B, ArrayList<Ligne> list){
+        for(int i = 0 ; i < list.size(); i++){
+            Ligne l = list.get(i);
+            // Test pour éviter les segments qui existent déjà.
+            if((l.getP1().equals(A)&&l.getP2().equals(B))||(l.getP1().equals(B)&&l.getP2().equals(A))){
+                return false;
+            } else if(false){
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args){
@@ -25,5 +34,8 @@ public class Main {
         polygone.add(l2);
         polygone.add(l3);
         polygone.add(l4);
+
+        System.out.println(validecorde(B, A, polygone));
+        System.out.println(l1.getSize());
     }
 }

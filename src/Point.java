@@ -7,6 +7,13 @@ public class Point {
         this.y = y;
     }
 
+    public boolean equals(Object obj){
+        if (obj==this){return true;}
+        if (!(obj instanceof Point)){return false;}
+        Point p= (Point) obj;
+        return ((x == p.x) && (y == p.y));
+    }
+
     public int getX() {
         return x;
     }

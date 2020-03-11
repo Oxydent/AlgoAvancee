@@ -7,6 +7,10 @@ public class Ligne {
         this.p2 = p2;
     }
 
+    public double getSize(){
+        return Math.sqrt(Math.pow(p1.getX()-p2.getX(), 2)+Math.pow(p1.getY()-p2.getY(), 2));
+    }
+
     public Point getP1() {
         return p1;
     }
