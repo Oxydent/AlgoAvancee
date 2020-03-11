@@ -2,15 +2,38 @@ import java.util.ArrayList;
 
 public class Main {
     public static boolean validecorde(Point A, Point B, ArrayList<Ligne> list){
+        Ligne corde = new Ligne(A, B);
         for(int i = 0 ; i < list.size(); i++){
             Ligne l = list.get(i);
             // Test pour éviter les segments qui existent déjà.
             if((l.getP1().equals(A)&&l.getP2().equals(B))||(l.getP1().equals(B)&&l.getP2().equals(A))){
                 return false;
-            } else if(false){
+            } else if(intersection(corde, l)){
                 return false;
             }
         }
+        return true;
+    }
+
+    public static boolean intersection(Ligne l1, Ligne l2){
+        double coefdir1;
+        double coefdir2;
+        double ordorig1;
+        double ordorig2;
+
+        // Droite issue de la ligne 1
+        coefdir1 = (l1.getP1().getY()-l1.getP2().getY())/(l1.getP1().getX()-l1.getP2().getX());
+        ordorig1 = l1.getP1().getY()-coefdir1*l1.getP1().getX();
+
+        // Droite issue de la ligne 2
+        coefdir2 = (l2.getP1().getY()-l2.getP2().getY())/(l2.getP1().getX()-l2.getP2().getX());
+        ordorig2 = l2.getP1().getY()-coefdir2*l2.getP1().getX();
+
+        if(coefdir1 == coefdir2){
+            return false;
+        }/* else if(){
+
+        }*/
         return true;
     }
 
